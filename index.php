@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-  <html>
-  <head>
-    <title>Aš varldau HTML!<?php print "ir PHP" ?></title>
-  </head>
-    <body>
-      <h1>Arnas - HTML <?php print "ir PHP" ?> asas</h1>
-        <p>Moku kurti statinį turinį.<br>Atidaryta: <?php print date("Y-m-d h:i:sa") ?></p>
-    </body>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title><?php print 'Aš , '. date("l") .' ir PHP';?> </title>
+</head>
+<body>
+    <h1>Arnas - HTML <?php print 'ir PHP';?> asas <br> jau nuo ,<?php print  date("Y");?> metų</h1>
+    <p>Viskas prasidėjo <?php print  date("m") .'<br>' .'mėnesio,' . date("d") .'dieną!';?> </p>
+</body>
 </html>
