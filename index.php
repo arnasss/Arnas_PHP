@@ -1,3 +1,11 @@
+<?php
+/**
+ * Si eilute pasisveikina
+ */
+print 'Labas';
+//print 'Iki';
+?>
+
 <html>
 <head>
     <meta charset="UTF-8">
