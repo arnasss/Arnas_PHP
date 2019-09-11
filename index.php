@@ -1,10 +1,15 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>PHP lydės ir <?php print date('Y/m/d', strtotime('+' . rand(1, 36000) . 'hours')); ?>!</title>
+    <title></title>
+    <style>
+body {background-color: rgb(<?php print rand(1,225) . ',' . rand(1,225) . ',' . rand(1,225)?>); }
+h1   {font-size: <?php print rand(10, 100); ?>}
+p    {color: rgb(<?php print rand(1,225) . ',' . rand(1,225) . ',' . rand(1,225)?>); }
+</style>
 </head>
 <body>
-    <h1>Arnas - Galbūt turėsiu <?php print rand(1, 4); ?> <br> vaikų(us)!</h1>
-    <p>D. Trump'as nebebus prezidentu: <br> <?php print date('Y/m/d', strtotime('+' . rand(2, 10) . 'year')); ?></p>
+    <h1>Aš keičiu dydį!</h1>
+    <p>Aš keičiu savo spalvą!</p>
 </body>
 </html>
