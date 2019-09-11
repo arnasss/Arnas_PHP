@@ -1,15 +1,12 @@
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-    <style>
-body {background-color: rgb(<?php print rand(1,225) . ',' . rand(1,225) . ',' . rand(1,225)?>); }
-h1   {font-size: <?php print rand(10, 100); ?>}
-p    {color: rgb(<?php print rand(1,225) . ',' . rand(1,225) . ',' . rand(1,225)?>); }
-</style>
-</head>
-<body>
-    <h1>Aš keičiu dydį!</h1>
-    <p>Aš keičiu savo spalvą!</p>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            img {height: 1<?php print date('s'); ?>px;}
+        </style>
+    </head>
+    <body>
+        <img src="https://image.shutterstock.com/image-vector/time-bomb-explosion-danger-concept-260nw-638530693.jpg" alt="">
+        <h1><?php print date('s'); ?></h1>
+    </body>
 </html>
