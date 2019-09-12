@@ -1,12 +1,23 @@
+<?php
+$stringas = 'stringas';
+$int = 54;
+$bool = true;
+$null = NULL;
+
+
+?>
+
 <html>
     <head>
         <meta charset="UTF-8">
-        <style>
-            img {height: 1<?php print date('s'); ?>px;}
-        </style>
+      
     </head>
     <body>
-        <img src="https://image.shutterstock.com/image-vector/time-bomb-explosion-danger-concept-260nw-638530693.jpg" alt="">
-        <h1><?php print date('s'); ?></h1>
+        <ul>
+            <li>String Tipas:<?php print $stringas; ?></li>
+            <li>Integer Tipas:<?php print $int; ?></li>
+            <li>Boolean Tipas:<?php print $bool; ?></li>
+            <li>Null Tipas:<?php print $null; ?></li>
+        </ul>
     </body>
 </html>
