@@ -1,9 +1,8 @@
 <?php
 
-$rand1 = rand(1, 100);
-$rand2 = rand(101, 200);
-$rand3 = rand(201, 300);
-$rand4 = rand(301, 400);
+$grazinti2 = rand(101, 200);
+$grazinti1 = rand(201, 300);
+$skola = rand(301, 400);
 
 ?>
 <html>
@@ -11,11 +10,9 @@ $rand4 = rand(301, 400);
         <meta charset="UTF-8">
     </head>
     <body>
-        <div class="body">
-            <h1>Skolos skaiciuokle</h1>
-            <h3>Jei paėmei <?php print $rand4; ?> eurų</h3>
-            <h3>Su dviem kabančiais gražinsi <?php print $rand3; ?></h3>
-            <h3>Su vienu kabančiu gražinsi <?php print $rand2; ?></h3>
-        </div>
+        <h1>Skolos skaiciuokle</h1>
+        <h2>Jei paėmei <?php print $skola; ?> eurų</h2>
+        <h3>Su dviem kabančiais gražinsi <?php print $grazinti1; ?></h3>
+        <h3>Su vienu kabančiu gražinsi <?php print $grazinti2; ?></h3>
     </body>
 </html>
