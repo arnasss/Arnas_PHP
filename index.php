@@ -1,23 +1,17 @@
 <?php
-$stringas = 'stringas';
-$int = 54;
-$bool = true;
-$null = NULL;
 
+$img = 'http://qnimate.com/wp-content/uploads/2014/03/images2.jpg';
 
 ?>
 
 <html>
     <head>
         <meta charset="UTF-8">
-      
     </head>
     <body>
-        <ul>
-            <li>String Tipas:<?php print $stringas; ?></li>
-            <li>Integer Tipas:<?php print $int; ?></li>
-            <li>Boolean Tipas:<?php print $bool; ?></li>
-            <li>Null Tipas:<?php print $null; ?></li>
-        </ul>
+        <img src="<?php print $img; ?>">
+        <img src="<?php print $img; ?>">
+        <img src="<?php print $img; ?>">
+        <img src="<?php print $img; ?>">
     </body>
 </html>
