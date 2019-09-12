@@ -1,20 +1,29 @@
 <?php
-
-$siukslines_turis = 40;
-$siuksliu_turis_per_d = 15;
-$max_kaupo_turis = rand(1, 10);
-$max_talpa = $siukslines_turis + $max_kaupo_turis;
-$pilnas_per = $max_talpa / $siuksliu_turis_per_d;
-$nesti_uz = round($pilnas_per);
-
+$laikas = date('s');
+$mazejantis = 59 - $laikas;
 ?>
 <html>
     <head>
         <meta charset="UTF-8">
+        <style>
+            .bomb {
+                background-color: blue;
+                height: 100px;
+                width: 100px;
+                color: white;
+            }
+            .kabum0 {
+                background-color: red;
+            }
+            h1 {
+                padding-top:  30px;
+                padding-left: 30px;
+            }
+        </style>
     </head>
     <body>
-        <h1>Po <?php print $nesti_uz .' ' . date('Y/m/d', strtotime('+' . $nesti_uz . 'days')); ?> pirk gėlių ir <br>
-        šampano, jeigu nori išvengti <br>
-        konflikto.</h1>
+        <div class="bomb kabum<?php print $mazejantis; ?>">
+            <h1><?php print $mazejantis; ?></h1>
+        </div>
     </body>
 </html>
