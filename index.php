@@ -1,8 +1,11 @@
 <?php
 
-$grazinti2 = rand(101, 200);
-$grazinti1 = rand(201, 300);
-$skola = rand(301, 400);
+$siukslines_turis = 40;
+$siuksliu_turis_per_d = 15;
+$max_kaupo_turis = rand(1, 10);
+$max_talpa = $siukslines_turis + $max_kaupo_turis;
+$pilnas_per = $max_talpa / $siuksliu_turis_per_d;
+$nesti_uz = round($pilnas_per);
 
 ?>
 <html>
@@ -10,9 +13,8 @@ $skola = rand(301, 400);
         <meta charset="UTF-8">
     </head>
     <body>
-        <h1>Skolos skaiciuokle</h1>
-        <h2>Jei paėmei <?php print $skola; ?> eurų</h2>
-        <h3>Su dviem kabančiais gražinsi <?php print $grazinti1; ?></h3>
-        <h3>Su vienu kabančiu gražinsi <?php print $grazinti2; ?></h3>
+        <h1>Po <?php print $nesti_uz .' ' . date('Y/m/d', strtotime('+' . $nesti_uz . 'days')); ?> pirk gėlių ir <br>
+        šampano, jeigu nori išvengti <br>
+        konflikto.</h1>
     </body>
 </html>
