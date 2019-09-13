@@ -1,35 +1,32 @@
 <?php
-$grizai_velai = rand(0, 1);
-$grizai_isgeres = rand(0, 1);
 
-if ($grizai_isgeres && $grizai_velai) {
-    $ispausdink = 'Grižai vėlai ir išgėres';
-} elseif ($grizai_isgeres && !$grizai_velai) {
-    $ispausdink = 'Grįžai išgėres';
-} elseif (!$grizai_isgeres && $grizai_velai) {
-    $ispausdink = 'Grižai vėlai';
+$sunny = rand(0, 1);
+
+if ($sunny) {
+    $isvada = 'sauleta';
 } else {
-    $ispausdink = 'Nieko nepadarei';
+    $isvada = 'debesuota';
 }
-
-if ($grizai_isgeres && $grizai_velai) {
-    $ispausdink_2 = 'Miegosi';
-} else {
-    $ispausdink_2 = 'Nemiegosi';
-}
-
-$pavadinimas = 'Buitinė skaičiuoklė';
-$isvada = "Išvada: $ispausdink_2 ant sofos";
 
 ?>
-
 <html>
         <head>
             <meta charset="UTF-8">
+            <style>
+                .sauleta {
+                    background-image: url(https://solarsystem.nasa.gov/system/basic_html_elements/x11561_Sun.png.pagespeed.ic.0igPUXQBpc.png);
+                    height: 100px;
+                    width: 100px;
+                    background-size: cover;
+                }
+                .debesuota {
+                    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_QOa5pS-meIekvdMFUsW_Rwio2Sj9fj8IOR5ylllrJajpSo-j);
+                    height: 100px;
+                    width: 100px;
+                    background-size: cover;
+            </style>
         </head>
         <body>
-            <h1><?php print $pavadinimas; ?></h1>
-            <h2><?php print $ispausdink; ?></h2>
-            <h3><?php print $isvada; ?></h3>
+            <div class="<?php print $isvada?>"></div>
     </body>
 </html>
