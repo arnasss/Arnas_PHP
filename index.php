@@ -11,9 +11,9 @@ $situacija_4 = 'Nieko nepadarei';
 
 if ($grizai_isgeres && $grizai_velai) {
     $ispausdink = $situacija_2;
-} elseif ($grizai_isgeres == true && $grizai_velai == false) {
+} elseif ($grizai_isgeres && !$grizai_velai) {
     $ispausdink = $situacija_3;
-} elseif ($grizai_isgeres == false && $grizai_velai == true) {
+} elseif (!$grizai_isgeres && $grizai_velai) {
     $ispausdink = $situacija_1;
 } else {
     $ispausdink = $situacija_4;
