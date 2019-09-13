@@ -14,10 +14,6 @@ if ($grizai_isgeres && $grizai_velai) {
 
 if ($grizai_isgeres && $grizai_velai) {
     $ispausdink_2 = 'Miegosi';
-} elseif ($grizai_isgeres && !$grizai_velai) {
-    $ispausdink_2 = 'Nemiegosi';
-} elseif (!$grizai_isgeres && $grizai_velai) {
-    $ispausdink_2 = 'Nemiegosi';
 } else {
     $ispausdink_2 = 'Nemiegosi';
 }
