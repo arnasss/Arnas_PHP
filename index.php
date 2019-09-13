@@ -1,14 +1,15 @@
 <?php
 
+$grizai_velai = rand(0, 1);
+$grizai_isgeres = rand(0, 1);
+
 $pavadinimas = 'Buitinė skaičiuoklė';
 $situacija_1 = 'Grižai vėlai';
 $situacija_2 = 'Grižai vėlai ir išgėres';
 $situacija_3 = 'Grįžai išgėres';
 $situacija_4 = 'Nieko nepadarei';
-$grizai_velai = rand(0, 1);
-$grizai_isgeres = rand(0, 1);
 
-if ($grizai_isgeres == true && $grizai_velai == true) {
+if ($grizai_isgeres && $grizai_velai) {
     $ispausdink = $situacija_2;
 } elseif ($grizai_isgeres == true && $grizai_velai == false) {
     $ispausdink = $situacija_3;
