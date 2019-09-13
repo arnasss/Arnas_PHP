@@ -1,39 +1,30 @@
 <?php
 
-$distance = rand(100, 1000);
-$consumption = 7.5;
-$price_l = 1.3;
-$me_money = 100;
+$pavadinimas = 'Buitinė skaičiuoklė';
+$situacija_1 = 'Grižai vėlai';
+$situacija_2 = 'Grižai vėlai ir išgėres';
+$situacija_3 = 'Grįžai išgėres';
+$situacija_4 = 'Nieko nepadarei';
+$grizai_velai = rand(0, 1);
+$grizai_isgeres = rand(0, 1);
 
-$sunaudota_kelioniai = round(($distance * $consumption)/100, 2);
-$keliones_kaina = round($sunaudota_kelioniai * $price_l , 2);
-if ($keliones_kaina <= $me_money) {
-    $text_7 = 'įperkama';
+if ($grizai_isgeres == true && $grizai_velai == true) {
+    $ispausdink = $situacija_2;
+} elseif ($grizai_isgeres == true && $grizai_velai == false) {
+    $ispausdink = $situacija_3;
+} elseif ($grizai_isgeres == false && $grizai_velai == true) {
+    $ispausdink = $situacija_1;
 } else {
-    $text_7 = 'neįperkama';
+    $ispausdink = $situacija_4;
 }
-
-$text_1 = "elionės skaičiuoklė";
-$text_2 = "Nuvažiuota distancija: $distance .";
-$text_3 = "Sunaudota $sunaudota_kelioniai l. kuro";
-$text_4 = "Kaina $keliones_kaina pinigų.";
-$text_5 = "Turimi pinigai $me_money";
-$text_6 = "Išvada: Kelionė: $text_7";
-
+        
 ?>
 <html>
     <head>
         <meta charset="UTF-8">
     </head>
     <body>
-        <h1><?php print $text_1; ?></h1>
-        <ul>
-            <li><?php print $text_5; ?></li>
-            <li><?php print $text_2; ?></li>
-            <li><?php print $text_3; ?></li>
-            <li><?php print $text_4; ?></li>
-        </ul>
-        <hr>
-        <p><?php print $text_6; ?></p>
+        <h1><?php print $pavadinimas; ?></h1>
+        <h2><?php print $ispausdink; ?></h2>
     </body>
 </html>
