@@ -4,19 +4,16 @@ $grizai_velai = rand(0, 1);
 $grizai_isgeres = rand(0, 1);
 
 $pavadinimas = 'Buitinė skaičiuoklė';
-$situacija_1 = 'Grižai vėlai';
-$situacija_2 = 'Grižai vėlai ir išgėres';
-$situacija_3 = 'Grįžai išgėres';
-$situacija_4 = 'Nieko nepadarei';
+
 
 if ($grizai_isgeres && $grizai_velai) {
-    $ispausdink = $situacija_2;
+    $ispausdink = 'Grižai vėlai ir išgėres';
 } elseif ($grizai_isgeres && !$grizai_velai) {
-    $ispausdink = $situacija_3;
+    $ispausdink = 'Grįžai išgėres';
 } elseif (!$grizai_isgeres && $grizai_velai) {
-    $ispausdink = $situacija_1;
+    $ispausdink = 'Grižai vėlai';
 } else {
-    $ispausdink = $situacija_4;
+    $ispausdink = 'Nieko nepadarei';
 }
         
 ?>
