@@ -1,29 +1,22 @@
 <?php
-$laikas = date('s');
-$mazejantis = 59 - $laikas;
+
+$distance = rand(100, 1000);
+$consumption = 7.5;
+$price_l = 1.3;
+$sunaudota_kelioniai = ($distance * $consumption)/100;
+$keliones_kaina = $sunaudota_kelioniai * $price_l;
+
 ?>
 <html>
     <head>
         <meta charset="UTF-8">
-        <style>
-            .bomb {
-                background-color: blue;
-                height: 100px;
-                width: 100px;
-                color: white;
-            }
-            .kabum0 {
-                background-color: red;
-            }
-            h1 {
-                padding-top:  30px;
-                padding-left: 30px;
-            }
-        </style>
     </head>
     <body>
-        <div class="bomb kabum<?php print $mazejantis; ?>">
-            <h1><?php print $mazejantis; ?></h1>
-        </div>
+        <h1>Kelionės skaičiouoklė</h1>
+        <ul>
+            <li>Nuvažiuota distancija: <?php print $distance; ?></li>
+            <li>Sunaudota <?php print $sunaudota_kelioniai; ?> l. kuro.</li>
+            <li>Kaina <?php print $keliones_kaina; ?> pinuigų.</li>
+        </ul>
     </body>
 </html>
