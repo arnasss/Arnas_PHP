@@ -3,9 +3,9 @@
 $months = 12;
 $wallet = 1000;
 $month_income =700;
-$month_expenses = rand(450, 800);
 
 for($x = 0; $x <= $months; $x++) {
+    $month_expenses = rand(450, 800);
     $wallet = $wallet + $month_income - $month_expenses;
 }
 
