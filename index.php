@@ -6,7 +6,7 @@ $month_income =700;
 
 for($x = 0; $x <= $months; $x++) {
     $month_expenses = rand(450, 800);
-    $wallet = $wallet + $month_income - $month_expenses;
+    $wallet += $month_income - $month_expenses;
 }
 
 $text = "Po $months m. prognuzuojamas likutis :$wallet"
