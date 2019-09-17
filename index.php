@@ -1,9 +1,9 @@
 <?php
 
 $grikiai = 5000;
+$per_day = rand(200, 500);
 $grikiai_start = $grikiai;
-for($days = 1; $grikiai >= 0; $days++) {
-    $per_day = rand(200, 500);
+for($days = 1; $grikiai >= $per_day; $days++) {
     $grikiai -= $per_day;
 }
 $data = date('Y/m/d', strtotime('+' .("$days days")));
