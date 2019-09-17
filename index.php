@@ -9,6 +9,7 @@ $car_price_used = $car_price_new;
 for($x = 0; $car_price_used >= $santaoupos; $x++) {
     $car_price_used -= ($car_price_used / 100) * $depreciation;
 }
+
 $car_price_used = round($car_price_used);
 $depr_perc= round(($car_price_used * 100) / $car_price_new);
 $text_h2 = "Naujos mašinos kaina :$car_price_new";
