@@ -21,7 +21,6 @@ $banko_report = [
 
 foreach($banko_report as $israso_idx => $israsas){
     if ($israsas['amount'] > 0) {
-        $israsas['css_class'] = 'income'; 
         $banko_report[$israso_idx]['css_class'] = 'income';
     } else {
         $banko_report[$israso_idx]['css_class'] = 'expense';
