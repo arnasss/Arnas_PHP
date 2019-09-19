@@ -29,5 +29,3 @@ foreach($banko_report as $israso_idx => $israsas){
     }
     
 var_dump($banko_report);
-
-?>
