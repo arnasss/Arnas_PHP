@@ -19,12 +19,33 @@ $banko_report = [
     ]
 ];
 
-foreach($banko_report as $israso_idx => $israsas){
+foreach ($banko_report as $israso_idx => $israsas) {
     if ($israsas['amount'] > 0) {
         $banko_report[$israso_idx]['css_class'] = 'income';
     } else {
         $banko_report[$israso_idx]['css_class'] = 'expense';
-    }    
     }
-    
-var_dump($banko_report);
+};
+
+?>
+<html>
+    <head>
+        <style>
+            .income {
+                color: green;
+            }
+            .expense {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Banko ataskaita</h1>
+        <ul>
+<?php foreach ($banko_report as $israsas) {
+    print "<li class='$israsas[css_class]'>$israsas[name]: $israsas[amount]</li>";
+}
+?>
+        </ul>
+    </body>
+</html>
