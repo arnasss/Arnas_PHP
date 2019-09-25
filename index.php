@@ -1,21 +1,17 @@
 <?php
-$x = rand(1, 20);
 
-function is_prime($x) {
-    for ($i = 2; $i < $x; $i++) {
-        if ($x % $i == 0) {
-            return false;
-        }
+function slot_run ($size) {
+    $array = [];
+    for ($x = 0; $x < $size; $x++) {
+       for ($i = 0; $i < $size; $i++) {
+            $array[$x][$i] = rand(0, 1);
+       }
     }
-    
-    return true;
+    return $array;
 }
 
-$text = $x . ' ' . (is_prime($x) ? 'yra' : 'nera'). ' pirminis sk.'
+$slot = slot_run(5);
+var_dump($slot);
 
 ?>
-<html>
-    <body>
-        <h1><?php print $text; ?></h1>
-    </body>
-</html>
+
