@@ -1,13 +1,16 @@
 <?php
+$x = rand(1, 20);
 
-$x = 7;
-$y = 4;
-
-function sum($x, $y) {
-    return $x + $y;
+function is_prime($x) {
+    for ($i = 2; $i < $x; $i++) {
+        if ($x % $i == 0) {
+            return 'nėra';
+        }
+    }
+    return 'yra';
 }
 
-$text = "$x ir $y suma: " . sum($x, $y);
+$text = $x . ' ' . is_prime($x) . ' pirminis sk.'
 
 ?>
 <html>
