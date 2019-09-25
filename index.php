@@ -4,13 +4,14 @@ $x = rand(1, 20);
 function is_prime($x) {
     for ($i = 2; $i < $x; $i++) {
         if ($x % $i == 0) {
-            return 'nėra';
+            return false;
         }
     }
-    return 'yra';
+    
+    return true;
 }
 
-$text = $x . ' ' . is_prime($x) . ' pirminis sk.'
+$text = $x . ' ' . (is_prime($x) ? 'yra' : 'nera'). ' pirminis sk.'
 
 ?>
 <html>
