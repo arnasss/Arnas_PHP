@@ -7,40 +7,26 @@ $form = [
     ],
     'title' => 'Kalėdų norai',
     'fields' => [
-        'first_name' => [
+//        'first_name' => [
+//            'type' => 'text',
+//            'label' => 'Vardas:',
+//            'extra' => [
+//                'attr' => [
+//                    'placeholder' => 'Enter Name',
+//                    'class' => 'input-text',
+//                    'id' => 'first-name'
+//                ]
+//            ],
+//            'validators' => [
+//                'validate_not_empty'
+//            ]
+//        ],
+        'X' => [
             'type' => 'text',
-            'label' => 'Vardas:',
+            'label' => 'X',
             'extra' => [
                 'attr' => [
-                    'placeholder' => 'Enter Name',
-                    'class' => 'input-text',
-                    'id' => 'first-name'
-                ]
-            ],
-            'validators' => [
-                'validate_not_empty'
-            ]
-        ],
-        'last_name' => [
-            'type' => 'text',
-            'label' => 'Pavardė:',
-            'extra' => [
-                'attr' => [
-                    'placeholder' => 'Enter Surname',
-                    'class' => 'input-text',
-                    'id' => 'last-name'
-                ]
-            ],
-            'validators' => [
-                'validate_not_empty'
-            ]
-        ],
-        'age' => [
-            'type' => 'text',
-            'label' => 'Metai:',
-            'extra' => [
-                'attr' => [
-                    'placeholder' => 'Enter Age',
+                    'placeholder' => 'Enter Numbers',
                     'class' => 'input-text',
                     'id' => 'last-name'
                 ]
@@ -48,29 +34,73 @@ $form = [
             'validators' => [
                 'validate_not_empty',
                 'validate_is_number',
-                'validate_is_positive',
-                'validate_max_100'
             ]
         ],
-        'wish' => [
-            'type' => 'select',
-            'value' => 'tv',
-            'label' => 'Kalėdom noriu:',
+        'Y' => [
+            'type' => 'text',
+            'label' => 'Y',
             'extra' => [
                 'attr' => [
-                    'class' => 'input-select',
-                    'id' => 'wish'
+                    'placeholder' => 'Enter Numbers',
+                    'class' => 'input-text',
+                    'id' => 'last-name'
                 ]
             ],
-            'options' => [
-                'car' => 'BMW',
-                'tv' => 'Teliko',
-                'socks' => 'Kojinių'
-            ],
             'validators' => [
-                'validate_not_empty'
+                'validate_not_empty',
+                'validate_is_number',
             ]
-        ]
+        ],
+//        'last_name' => [
+//            'type' => 'text',
+//            'label' => 'Pavardė:',
+//            'extra' => [
+//                'attr' => [
+//                    'placeholder' => 'Enter Surname',
+//                    'class' => 'input-text',
+//                    'id' => 'last-name'
+//                ]
+//            ],
+//            'validators' => [
+//                'validate_not_empty'
+//            ]
+//        ],
+//        'age' => [
+//            'type' => 'text',
+//            'label' => 'Metai:',
+//            'extra' => [
+//                'attr' => [
+//                    'placeholder' => 'Enter Age',
+//                    'class' => 'input-text',
+//                    'id' => 'last-name'
+//                ]
+//            ],
+//            'validators' => [
+//                'validate_not_empty',
+//                'validate_is_number',
+//                'validate_is_positive',
+//                'validate_max_100'
+//            ]
+//        ],
+//        'wish' => [
+//            'type' => 'select',
+//            'value' => 'tv',
+//            'label' => 'Kalėdom noriu:',
+//            'extra' => [
+//                'attr' => [
+//                    'class' => 'input-select',
+//                    'id' => 'wish'
+//                ]
+//            ],
+//            'options' => [
+//                'car' => 'BMW',
+//                'tv' => 'Teliko',
+//                'socks' => 'Kojinių'
+//            ],
+//            'validators' => [
+//                'validate_not_empty'
+//            ]
+//        ]
     ],
     'buttons' => [
         'submit' => [
@@ -190,7 +220,7 @@ function form_fail($filtered_input, &$form) {
 }
 
 function form_success($filtered_input, &$form) {
-    $form['message'] = 'success!';
+    $form['message'] = array_sum($filtered_input);
 }
 
 $filtered_input = get_form_input($form);
