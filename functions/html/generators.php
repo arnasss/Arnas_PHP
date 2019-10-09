@@ -17,6 +17,3 @@ function html_attr($attr) {
 
     return implode(' ', $html_attr_array);
 }
-
-
-?>

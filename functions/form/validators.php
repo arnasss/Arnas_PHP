@@ -45,5 +45,3 @@ function validate_password($field_input, &$field) {
 
     return true;
 }
-
-?>

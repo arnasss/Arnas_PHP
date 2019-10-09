@@ -133,6 +133,14 @@ if (!empty($filtered_input)) {
     validate_form($filtered_input, $form);
 }
 
+function array_to_file($array, $file) {
+    $data = json_encode($array);
+    $failas = file_put_contents($file, $data);
+    if ($failas !== false){
+        return TRUE;
+    } 
+}
+
 ?>
 <html>
     <head>

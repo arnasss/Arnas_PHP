@@ -42,7 +42,3 @@ function validate_form($filtered_input, &$form) {
 
     return $success;
 }
-
-
-
-?>
