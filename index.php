@@ -126,6 +126,7 @@ function form_fail($filtered_input, &$form) {
 
 function form_success($filtered_input, &$form) {
     $form['message'] = 'You In';
+    array_to_file($filtered_input, 'test.txt');
 }
 
 $filtered_input = get_form_input($form);
@@ -137,9 +138,20 @@ function array_to_file($array, $file) {
     $data = json_encode($array);
     $failas = file_put_contents($file, $data);
     if ($failas !== false){
-        return TRUE;
+        return true;
     } 
 }
+
+function file_to_array($file){
+    $data = file_get_contents($file);
+    if ($data !== 0){
+        $array = json_decode($data, true);
+        return $array;
+    } else {
+        return false;
+    }
+}
+var_dump(file_to_array('test.txt'));
 
 ?>
 <html>
