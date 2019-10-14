@@ -1,26 +1,57 @@
 <?php
 
-if (empty($_COOKIE)) {
-    $id = rand(100000, 999999);
-    $visits = 1;
-} else {
-    $id = $_COOKIE['user_id'];
-    $visits = ++$_COOKIE['visits'];
-}
+require 'functions/form/core.php';
+require 'functions/html/generators.php';
 
-setcookie('user_id', $id, strtotime('+30 days'));
-setcookie('visits', $visits, strtotime('+30 days'));
+$form = [
+    'attr' => [
+        'action' => 'index.php',
+    ],
+    'fields' => [
+//       
+        'teemname' => [
+            'type' => 'text',
+            'extra' => [
+                'attr' => [
+                    'placeholder' => 'Team name',
+                    'class' => 'input-text',
+                ]
+            ],
+            'validators' => [
+                'validate_not_empty'
+            ]
+        ],
 
-$h1_text = "User ID: $id";
-$h2_text = "Visits: $visits";
+    ],
+    'buttons' => [
+        'submit' => [
+            'type' => 'submit',
+            'value' => 'Create',
+            'class' => 'input-text'
+
+        ],     
+    ],
+    'callbacks' => [
+        'fail' => 'form_fail',
+        'success' => 'form_success'
+        ]
+    ]
 
 ?>
 <html>
     <head>
-        <title>Cookie Visits Tracking</title>
+        <meta charset="UTF-8">
+        <title>Form Templates</title>
+        <style>
+            .button-container {
+                display:inline-block;
+            }
+            .field-container {
+                display:inline-block;
+            }
+        </style>
     </head>
     <body>
-        <h1><?php print $h1_text; ?></h1>
-        <h1><?php print $h2_text; ?></h1>            
+        <?php require 'templates/form.tpl.php'; ?>
     </body>
 </html>
