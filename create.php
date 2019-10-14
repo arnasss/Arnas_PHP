@@ -3,9 +3,6 @@ require 'functions/form/core.php';
 require 'functions/html/generators.php';
 
 $form = [
-    'attr' => [
-        'action' => 'index.php',
-    ],
     'fields' => [
         'teamname' => [
             'type' => 'text',
@@ -60,7 +57,7 @@ $teams = [
     ]
 ];
 
-function form_success($array, $file) {
+function array_to_file($array, $file) {
     $data = json_encode($array);
     $failas = file_put_contents($file, $data);
     if ($failas !== false){
@@ -68,8 +65,28 @@ function form_success($array, $file) {
     } 
 }
 
-form_success($teams, 'data/teams.txt');
 
+function file_to_array($file){
+    $data = file_get_contents($file);
+    if ($data !== 0){
+        $array = json_decode($data, true);
+        return $array;
+    } else {
+        return false;
+    }
+}
+
+function form_success($new_team) {
+    $array = file_to_array('data/teams.txt');
+    $new_team['players'] = [];
+    $array[] = $new_team;
+    array_to_file($array, 'data/teams.txt');
+}
+
+$filtered_input = get_form_input($form);
+if($filtered_input) {
+    validate_form($filtered_input, $form);
+}
 ?>
 <html>
     <head>
