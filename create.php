@@ -14,28 +14,24 @@ $form = [
             'extra' => [
                 'attr' => [
                     'placeholder' => 'Team name',
-                    'class' => 'input-text',
                 ]
             ],
             'validators' => [
                 'validate_not_empty'
             ]
         ],
-
     ],
     'buttons' => [
         'submit' => [
             'type' => 'submit',
-            'value' => 'Create',
-            'class' => 'input-text'
-
-        ],     
+            'value' => 'Create'
+        ],
     ],
     'callbacks' => [
         'fail' => 'form_fail',
         'success' => 'form_success'
-        ]
     ]
+];
 
 ?>
 <html>
