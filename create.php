@@ -1,10 +1,11 @@
 <?php
 require 'functions/form/core.php';
 require 'functions/html/generators.php';
+require 'functions/file.php';
 
 $form = [
     'fields' => [
-        'teamname' => [
+        'team_name' => [
             'type' => 'text',
             'extra' => [
                 'attr' => [
@@ -12,7 +13,9 @@ $form = [
                 ]
             ],
             'validators' => [
-                'validate_not_empty'
+                'validate_not_empty',
+                'validate_team'
+                
             ]
         ],
     ],
@@ -30,7 +33,7 @@ $form = [
 
 $teams = [
     [
-        'teams_name' => 'pirma',
+        'team' => 'pirma',
         'players' => [
             [
                 'nickname' => '',
@@ -43,7 +46,7 @@ $teams = [
         ]
     ],
     [
-        'teams_name' => 'antra',
+        'team' => 'antra',
         'players' => [
             [
                 'nickname' => '',
@@ -57,24 +60,7 @@ $teams = [
     ]
 ];
 
-function array_to_file($array, $file) {
-    $data = json_encode($array);
-    $failas = file_put_contents($file, $data);
-    if ($failas !== false){
-        return TRUE;
-    } 
-}
 
-
-function file_to_array($file){
-    $data = file_get_contents($file);
-    if ($data !== 0){
-        $array = json_decode($data, true);
-        return $array;
-    } else {
-        return false;
-    }
-}
 
 function form_success($new_team) {
     $array = file_to_array('data/teams.txt');
@@ -87,6 +73,25 @@ $filtered_input = get_form_input($form);
 if($filtered_input) {
     validate_form($filtered_input, $form);
 }
+
+function validate_team($field_input, &$field){
+    $array = file_to_array('data/teams.txt');
+    var_dump($array);
+    if (!empty($array)) {
+    foreach ($array as $value) {
+        if ($value['team_name'] == $field_input) {
+            $field['error'] = 'Tokia komanda jau yra!';
+        return false;
+        } 
+        }
+    }
+                    return true;    
+
+        }
+
+
+function form_fail() {}
+
 ?>
 <html>
     <head>
