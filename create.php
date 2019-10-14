@@ -1,5 +1,4 @@
 <?php
-
 require 'functions/form/core.php';
 require 'functions/html/generators.php';
 
@@ -8,8 +7,7 @@ $form = [
         'action' => 'index.php',
     ],
     'fields' => [
-//       
-        'teemname' => [
+        'teamname' => [
             'type' => 'text',
             'extra' => [
                 'attr' => [
@@ -33,19 +31,50 @@ $form = [
     ]
 ];
 
+$teams = [
+    [
+        'teams_name' => 'pirma',
+        'players' => [
+            [
+                'nickname' => '',
+                'score' => ''
+            ],
+            [
+                'nickname' => '',
+                'score' => ''
+            ]
+        ]
+    ],
+    [
+        'teams_name' => 'antra',
+        'players' => [
+            [
+                'nickname' => '',
+                'score' => ''
+            ],
+            [
+                'nickname' => '',
+                'score' => ''
+            ]
+        ]
+    ]
+];
+
+function form_success($array, $file) {
+    $data = json_encode($array);
+    $failas = file_put_contents($file, $data);
+    if ($failas !== false){
+        return TRUE;
+    } 
+}
+
+form_success($teams, 'data/teams.txt');
+
 ?>
 <html>
     <head>
         <meta charset="UTF-8">
         <title>Form Templates</title>
-        <style>
-            .button-container {
-                display:inline-block;
-            }
-            .field-container {
-                display:inline-block;
-            }
-        </style>
     </head>
     <body>
         <?php require 'templates/form.tpl.php'; ?>
