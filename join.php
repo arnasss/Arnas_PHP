@@ -9,6 +9,7 @@ function get_options() {
     foreach ($array as $value) {
         $komandos[] = $value['team_name'];
     }
+    return $komandos;
 }
 
 $form = [
@@ -28,8 +29,7 @@ $form = [
         'team_select' => [
             'type' => 'select',
             'value' => '',
-            'options' =>
-            $komandos
+            'options' =>  get_options()
             ,
             'validators' => [
                 'validate_not_empty'
