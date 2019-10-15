@@ -1,4 +1,5 @@
 <?php
+
 require 'functions/form/core.php';
 require 'functions/html/generators.php';
 require 'functions/file.php';
@@ -15,7 +16,6 @@ $form = [
             'validators' => [
                 'validate_not_empty',
                 'validate_team'
-                
             ]
         ],
     ],
@@ -30,6 +30,7 @@ $form = [
         'success' => 'form_success'
     ]
 ];
+
 
 $teams = [
     [
@@ -60,8 +61,6 @@ $teams = [
     ]
 ];
 
-
-
 function form_success($new_team) {
     $array = file_to_array('data/teams.txt');
     $new_team['players'] = [];
@@ -70,27 +69,26 @@ function form_success($new_team) {
 }
 
 $filtered_input = get_form_input($form);
-if($filtered_input) {
+
+if ($filtered_input) {
     validate_form($filtered_input, $form);
 }
 
-function validate_team($field_input, &$field){
+function validate_team($field_input, &$field) {
     $array = file_to_array('data/teams.txt');
     var_dump($array);
     if (!empty($array)) {
-    foreach ($array as $value) {
-        if ($value['team_name'] == $field_input) {
-            $field['error'] = 'Tokia komanda jau yra!';
-        return false;
-        } 
+        foreach ($array as $value) {
+            if ($value['team_name'] == $field_input) {
+                $field['error'] = 'Tokia komanda jau yra!';
+                return false;
+            }
         }
     }
-                    return true;    
+    return true;
+}
 
-        }
-
-
-function form_fail() {}
+function form_fail(){}
 
 ?>
 <html>
