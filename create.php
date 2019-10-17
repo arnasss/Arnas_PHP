@@ -8,6 +8,7 @@ $form = [
     'fields' => [
         'team_name' => [
             'type' => 'text',
+            'label' => 'Sukurkite komanda:',
             'extra' => [
                 'attr' => [
                     'placeholder' => 'Team name',
@@ -31,35 +32,6 @@ $form = [
     ]
 ];
 
-
-$teams = [
-    [
-        'team' => 'pirma',
-        'players' => [
-            [
-                'nickname' => '',
-                'score' => ''
-            ],
-            [
-                'nickname' => '',
-                'score' => ''
-            ]
-        ]
-    ],
-    [
-        'team' => 'antra',
-        'players' => [
-            [
-                'nickname' => '',
-                'score' => ''
-            ],
-            [
-                'nickname' => '',
-                'score' => ''
-            ]
-        ]
-    ]
-];
 
 function form_success($new_team) {
     $array = file_to_array('data/teams.txt');

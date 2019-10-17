@@ -14,6 +14,8 @@ function get_options() {
     }
 }
 
+
+
 $form = [
     'title' => 'Join Team',
     'fields' => [
@@ -45,13 +47,11 @@ $form = [
         ],
     ],
     'callbacks' => [
-        'fail' => 'form_fail',
         'success' => 'form_success'
     ]
 ];
 
 function form_success($filtered_input, $form) {
-    var_dump($filtered_input);
     $teams = file_to_array('data/teams.txt'); 
     foreach ($teams as &$team) {
         if ($team['team_name'] === $filtered_input['team_select']) {
@@ -59,20 +59,19 @@ function form_success($filtered_input, $form) {
                     'nickname' => $filtered_input['player_name'],
                     'score' => 0
                 ];
-
         }
     }
     array_to_file($teams, 'data/teams.txt');
-    setcookie('player_info_team_name' ,$team['team_name'] , time() + 36000,  "/" );
-    setcookie('player_info_nickname', $filtered_input['player_name'] , time() + 36000,  "/");
+    
+    setcookie('cookie_team' ,$team['team_name'] , time() + 36000,  "/" );
+    setcookie('cookie_nickname', $filtered_input['player_name'] , time() + 36000,  "/");
 
 }
 
 function validate_player($field_input, &$field) {
     $teams = file_to_array('data/teams.txt');
     foreach ($teams as $team) {
-        foreach ($team['players'] as $player)
-            {
+        foreach ($team['players'] as $player) {
             if(strtoupper($player['nickname']) == strtoupper($field_input)){
                 $field['error'] = 'Toks zaidejas jau yra';
                 return false;
@@ -83,6 +82,7 @@ function validate_player($field_input, &$field) {
 }
 
 $filtered_input = get_form_input($form);
+
 if (!empty($filtered_input)) {
     $success = validate_form($filtered_input, $form);
 }
@@ -90,7 +90,9 @@ if (!empty($filtered_input)) {
 function form_fail($filtered_input, $form) {
 }
 
-
+if (isset($_COOKIE['cookie_nickname'])) {
+    $text = 'Jau prisijunges kaip ' .$_COOKIE['cookie_nickname'];
+}
 
 ?>
 <html>
@@ -99,6 +101,10 @@ function form_fail($filtered_input, $form) {
         <title>Form Templates</title>
     </head>
     <body>
+        <?php if (isset($_COOKIE['cookie_nickname'])): ?>
+        <h2><?php print $text; ?></h2>
+        <?php else: ?>
         <?php require 'templates/form.tpl.php'; ?>
+        <?php endif; ?>
     </body>
 </html>
