@@ -5,7 +5,6 @@ require 'functions/html/generators.php';
 require 'functions/file.php';
 
 $form = [
-
     'title' => 'Registruokis',
     'fields' => [
         'full_name' => [
@@ -57,7 +56,7 @@ $form = [
         ],
     ],
     'buttons' => [
-        'submit' => [
+        'Registruotis' => [
             'type' => 'submit',
             'value' => 'Registruotis'
         ],
@@ -68,6 +67,13 @@ $form = [
         'success' => 'form_success'
     ]
 ];
+
+function form_success($filtered_input) {
+    $array = file_to_array('data/users.txt');
+    $array['info'] = $filtered_input;
+    array_to_file($array, 'data/users.txt');
+}
+
 
 ?>
 <html>
