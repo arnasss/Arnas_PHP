@@ -45,3 +45,14 @@ function validate_password($field_input, &$field) {
 
     return true;
 }
+
+function validate_fields_match($filtered_input, &$form, $params) {
+    $reference_value = $filtered_input[$params[0]];
+    foreach ($params as $field_id) {
+        if ($reference_value !== $filtered_input["$field_id"]) {
+            $form['fields'][$field_id]['error'] = 'Laukelis nesutampa';
+            return false;
+        }
+    }
+    return true;
+}
